@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
 	<wb-module deploy-name="MVCFilmSite">
 		<property name="context-root" value="MVCFilmSite"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
@@ -6,4 +7,19 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
 	</wb-module>
+=======
+    	
+    <wb-module deploy-name="MVCFilmSite">
+        		
+        <property name="context-root" value="MVCFilmSite"/>
+        		
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+        		
+        <wb-resource deploy-path="/" source-path="WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        	
+    </wb-module>
+    
+>>>>>>> acb0f9c99fbfe933166ff15fe6c22e1533ddc049
 </project-modules>
