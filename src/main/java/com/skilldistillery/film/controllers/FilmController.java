@@ -13,7 +13,7 @@ public class FilmController {
 	 @RequestMapping(path = "home.do")
 	public ModelAndView homepage() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/views/home.jsp");
+		mv.setViewName("views/home");
 		return mv;
 	}
 

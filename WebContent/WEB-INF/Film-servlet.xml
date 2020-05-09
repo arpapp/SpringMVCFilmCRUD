@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-<<<<<<< HEAD
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
-=======
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
- xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
- xsi:schemaLocation="
->>>>>>> 56b7f9d3d307fa2b7acea95c126c9a28fe929516
+
    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-<<<<<<< HEAD
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<context:component-scan
 		base-package="com.skilldistillery.film.controllers" />
-<!-- 	<bean id="dao" class="com.skilldistillery.film.data.FilmDAOImpl" /> -->
- </beans>
-=======
-
-  <context:component-scan base-package="com.skilldistillery.film.controllers"/>
- 
-  <bean id="dao" class="com.skilldistillery.film.data.FilmDAO"/>
-
-  <bean id="dao" class="com.skilldistillery.advancedrequesthandling.data.JDBCStateDAOImpl"/>
-  
-  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="prefix" value="/WEB-INF/"/>
-    <property name="suffix" value=".jsp"/>
-  </bean>
-  
+	<!-- <bean id="dao" class="com.skilldistillery.film.data.FilmDAOImpl" /> -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 </beans>
->>>>>>> 56b7f9d3d307fa2b7acea95c126c9a28fe929516
+
