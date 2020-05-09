@@ -14,13 +14,13 @@
 	<br> Please enter the following information for the film you would
 	like to add:
 	<br>
-	<form action="addFilm.do" method="GET">
+	<form action="addFilmAction.do" method="GET">
 		
 		Title:<input type="text" name="title" size="4" required/>
 		Description:<input type="text" name="description" size="4"/> 
 		Release Year:<input type="text" name="releaseYear" size="4"/> 
 		<label>Please type (1) for English, (2) for Italian, (3) for Japanese, (4) for Mandarin, (5) for French, or (6) for German</label>
-		Language ID:<input type="text" name="languageID" size="4"required/> 
+		Language ID:<input type="text" name="languageId" size="4"required/> 
 		
 		Rental Duration:<input type="text" name="rentalDuration" size="4"required/> 
 		Rental Rate:<input type="text" name="rentalRate" size="4"required/> 
