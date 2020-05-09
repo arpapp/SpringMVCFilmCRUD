@@ -4,6 +4,7 @@
   <welcome-file-list>
     <welcome-file>home.do</welcome-file>
   </welcome-file-list>
+<<<<<<< HEAD
   <servlet>
 		<servlet-name>Film</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -12,4 +13,14 @@
 		<servlet-name>Film</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+=======
+    <servlet>
+  	<servlet-name>Film</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Film</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+>>>>>>> 56b7f9d3d307fa2b7acea95c126c9a28fe929516
 </web-app>
