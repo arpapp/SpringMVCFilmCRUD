@@ -10,22 +10,26 @@ public class FilmController {
 	// @Autowired
 	// private FilmDAO dao;
 
-	 @RequestMapping(path = "home.do")
+	@RequestMapping(path = "home.do")
 	public ModelAndView homepage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("views/home");
 		return mv;
 	}
 
-	// @RequestMapping("something.do")
+	// @RequestMapping("somethign.do")
 	public ModelAndView pullByID() {
 		ModelAndView mv = new ModelAndView();
 		return mv;
 	}
 
-	// @RequestMapping("something.do")
+	@RequestMapping(path = "addFilm.do", params = { "title", "description", "releaseYear", "languageID", 
+			"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
 	public ModelAndView addFilm() {
 		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("views/results");
+		
 		return mv;
 	}
 
@@ -35,7 +39,7 @@ public class FilmController {
 		return mv;
 	}
 
-	// @RequestMapping("something.do")
+	@RequestMapping("editFilm.do")
 	public ModelAndView editFilm() {
 		ModelAndView mv = new ModelAndView();
 		return mv;

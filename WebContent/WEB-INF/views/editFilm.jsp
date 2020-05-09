@@ -6,16 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Add a Film</title>
+<title>Edit a Film</title>
 </head>
 <body>
-	<h2>Add a Film</h2>
+	<h2>Edit a Film</h2>
 	<br>
-	<br> Please enter the following information for the film you would
-	like to add:
+	<br> Please edit the following information for the film you would
+	like to update:
 	<br>
-	<form action="addFilm.do" method="GET">
-		
+	<form action="editFilm.do" method="GET">
+	
+		<input type = "hidden" value = "${film.id}"></input>
 		Title:<input type="text" name="title" size="4" required/>
 		Description:<input type="text" name="description" size="4"/> 
 		Release Year:<input type="text" name="releaseYear" size="4"/> 
