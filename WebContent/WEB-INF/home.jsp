@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!-- TODO: Add the @taglib for form -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,18 +12,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:choose>
-		<c:when test="${! empty film}">
-			<ul>
-				<li>${film.id}</li>
-				<li>${film.title }</li>
-				<li>${film.description }</li>
-			</ul>
-	</c:when>
-	<c:otherwise>
-	      <p>No Film Found</p>
-	</c:otherwise>
-  	</c:choose>
-
+	<form action="login.do" method="GET">
+		<input type="submit" value="login" />
+	</form>
+	<form action="register.do" method="GET">
+		<input type="submit" value="register" />
+	</form>
+	<p>
+	<p>
+	<form action="searchID.do" method="GET">
+		Search Film ID <br /> <input type="text" value="Search ID" />
+	</form>
+	<form action="searchKeyword.do" method="GET">
+		Search Keyword <br /> <input type="text" value="Search Keyword" />
+	</form>
+	<br />
+	<form action="addFilm.do" method="GET">
+		<input type="submit" value="Add Film" />
+	</form>
+	<br />
+	<form action="editFilm.do" method="GET">
+		<input type="submit" value="Edit Film" />
+	</form>
+	<br />
+	<form action="deleteFilm.do" method="GET">
+		<input type="submit" value="Delete Film" />
+	</form>
 </body>
 </html>
