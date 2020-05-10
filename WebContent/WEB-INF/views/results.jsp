@@ -26,12 +26,12 @@
 						</c:forEach></li>
 					<form action="editFilm.do" method="GET">
 						<input type="submit" value="Edit Film" /> <input type="hidden"
-							name="id" value="${film.id}" />
+							name="id" value="${eachFilm.id}" />
 
 					</form>
 					<form action="deleteFilm.do" method="GET">
 						<input type="submit" value="Delete Film" /> <input type="hidden"
-							name="id" value="${film.id}" />
+							name="id" value="${eachFilm.id}" />
 
 					</form>
 				</c:forEach>
