@@ -18,7 +18,7 @@
 					<li>${film.language}</li>
 					<li>${film.rating}</li>
 					<li>${film.category}</li>
-					<li><c:forEach var="eachActor" items="${eachFilm.filmActors}">
+					<li>ACTORS:<c:forEach var="eachActor" items="${film.filmActors}">
 							<li>${eachActor.firstName} ${eachActor.lastName}</li>
 							<%-- <li>${eachActor.lastName}</li> --%>
 						</c:forEach></li> 
