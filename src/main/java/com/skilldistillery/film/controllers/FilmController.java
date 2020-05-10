@@ -30,7 +30,7 @@ public class FilmController {
 		try {
 			Film found = dao.findFilmById(searchId);
 			mv.addObject("film",found);
-			mv.setViewName("views/results");
+			mv.setViewName("views/resultId");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,7 +84,7 @@ public class FilmController {
 		return mv;
 	}
 
-	 @RequestMapping(path = "searchKeyword.do", params = "searchKeyword")
+	 @RequestMapping(path = "searchKeyword.do", params = "searchKeyword", method = RequestMethod.GET)
 	public ModelAndView searchKeywords(String searchKeyword) {
 		ModelAndView mv = new ModelAndView();
 		try {
