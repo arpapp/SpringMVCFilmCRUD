@@ -211,11 +211,10 @@ public class FilmDAOImpl implements FilmDAO {
 
 		while (rs.next()) {
 			Film film = new Film();
-			film.setId(rs.getInt("id"));
 			film.setTitle(rs.getString("title"));
-			film.setReleaseYear(rs.getInt("release_year"));
-			film.setRating(rs.getString("rating"));
 			film.setDescription(rs.getString("description"));
+			film.setRating(rs.getString("rating"));
+			film.setCategory(rs.getString("category"));
 			film.setLanguage(rs.getString("language.name"));
 			film.setFilmActors(findActorsByFilmId(rs.getInt("id")));
 
