@@ -72,9 +72,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setTitle(filmResult.getString("title"));
 				film.setDescription(filmResult.getString("description"));
 				film.setRating(filmResult.getString("rating"));
-			//	film.setCategory(filmResult.getString("category.name"));
 				film.setLanguage(findLanguageByFilmId(filmId));
-			//	film.setFilmActors(findActorsByFilmId(filmId));
 				film.setCategory("New Release");
 				
 				filmResult.close();
