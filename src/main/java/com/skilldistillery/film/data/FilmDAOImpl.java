@@ -186,18 +186,21 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false);
-
-			String sql = "UPDATE film SET title=?, description=?, language_id =?, rental_duration=?, rental_rate=?, replacement_cost=?, rating=?, special_features=? WHERE id=?";
-			PreparedStatement stmt = conn.prepareStatement(sql);
+			String sql = "UPDATE film SET title=?, description=?, language_id =?, rental_duration=?, rental_rate=?, replacement_cost=?, rating=? WHERE id=?";
+			PreparedStatement stmt = conn.prepareStatement(sql);	
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
-			stmt.setInt(3, film.getLanguageId());
-			stmt.setInt(4, film.getRentalDuration());
-			stmt.setDouble(5, film.getRentalRate());
-			stmt.setDouble(6, film.getReplacementCost());
-			stmt.setString(7, film.getRating());
-			stmt.setString(8, film.getSpecialFeatures());
-			stmt.setInt(9, film.getId());
+			stmt.setInt(3, film.getReleaseYear());
+			stmt.setInt(4, film.getLanguageId());
+			stmt.setInt(5, film.getRentalDuration());
+			stmt.setDouble(6, film.getRentalRate());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getReplacementCost());
+			stmt.setString(9, film.getRating());
+			stmt.setInt(10, film.getId());
+
+		//	stmt.setString(8, film.getSpecialFeatures());
+		//	stmt.setInt(9, film.getId());
 			stmt.executeUpdate();
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
@@ -249,6 +252,7 @@ public class FilmDAOImpl implements FilmDAO {
 			film.setCategory(rs.getString("category.name"));
 			film.setLanguage(rs.getString("language.name"));
 			film.setFilmActors(findActorsByFilmId(rs.getInt("film.id")));
+			film.setId(rs.getInt("id"));
 
 			filmsWithUserSearchKw.add(film);
 		}
