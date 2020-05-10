@@ -14,10 +14,12 @@
 <body>
 	<p>
 	<form action="searchID.do" method="GET">
-		Search Film ID <br /> <input type="text" value="Search ID" />
+		Search Film ID <br /> <input type="text" name = "searchId"/>
+		<input type="submit" value="Submit" />
 	</form>
 	<form action="searchKeyword.do" method="GET">
-		Search Keyword <br /> <input type="text" value="Search Keyword" />
+		Search Keyword <br /> <input type="text" name = "searchKeyword"/>
+		<input type="submit" value="Submit" />
 	</form>
 	<br />
 	<form action="addFilm.do" method="GET">

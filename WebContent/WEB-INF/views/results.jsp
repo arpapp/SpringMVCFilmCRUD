@@ -15,12 +15,14 @@
 		<c:when test="${! empty film}">
 			<ul>
 				<c:forEach var="eachFilm" items="${film}">
-					<li>${actor.first_name}
-					<li>${actor.last_name}</li>
-					<li>${category.name}</li>
-					<li>${title}</li>
-					<li>${language.name}</li>
-					<li>${film.rating}</li>
+					<li>${eachFilm.title}</li>
+					<li>${eachFilm.language}</li>
+					<li>${eachFilm.rating}</li>
+					<li>${eachFilm.category}</li>
+					<li><c:forEach var="eachActor" items="${eachFilm.filmActors}">
+							<li>${eachActor.firstName} ${eachActor.lastName} </li>
+							<%-- <li>${eachActor.lastName} </li> --%>
+						</c:forEach></li>
 				</c:forEach>
 			</ul>
 		</c:when>

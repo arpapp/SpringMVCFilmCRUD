@@ -1,9 +1,12 @@
 package com.skilldistillery.film.controllers;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.film.data.FilmDAO;
 import com.skilldistillery.film.entities.Film;
@@ -21,13 +24,20 @@ public class FilmController {
 		return mv;
 	}
 
-	// @RequestMapping("somethign.do")
-	public ModelAndView pullByID() {
+	 @RequestMapping(path = "searchID.do", params = "searchId")
+	public ModelAndView pullByID(int searchId) {
 		ModelAndView mv = new ModelAndView();
+		try {
+			Film found = dao.findFilmById(searchId);
+			mv.addObject("film",found);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return mv;
 	}
 
-	@RequestMapping(path = "addFilmAction.do", params = { "title", "description", "releaseYear", "languageId", 
+	@RequestMapping(path = "addFilmAction.do", method = RequestMethod.POST, params = { "title", "description", "releaseYear", "languageId", 
 			"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
 	public ModelAndView addFilm(String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
@@ -49,37 +59,39 @@ public class FilmController {
 		return mv;
 	}
 
-	// @RequestMapping("something.do")
-	public ModelAndView deleteFilm() {
-		ModelAndView mv = new ModelAndView();
-		return mv;
-	}
-
-	@RequestMapping(path = "editFilmAction.do", params = { "title", "description", "releaseYear", "languageId", 
-			"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
-	public ModelAndView editFilm(String title, String description, int releaseYear, int languageId, int rentalDuration,
+	 @RequestMapping(path = "deleteFilmAction.do", params = { "title", "description", "releaseYear", "languageId", 
+				"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
+	public ModelAndView deleteFilm(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
 		ModelAndView mv = new ModelAndView();
-		Film film = new Film();
-		film.setTitle(title);
-		film.setDescription(description);
-		film.setReleaseYear(releaseYear);
-		film.setLanguageId(languageId);
-		film.setRentalDuration(rentalDuration);
-		film.setRentalRate(rentalRate);
-		film.setLength(length);
-		film.setReplacementCost(replacementCost);
-		film.setRating(rating);
-		film.setSpecialFeatures(specialFeatures);
-		Film created = dao.createFilm(film);
-		mv.addObject("film", created);
+		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
+		dao.deleteFilm(film);
+		mv.addObject("film", film);
 		mv.setViewName("views/results");
 		return mv;
 	}
 
-	// @RequestMapping("something.do")
-	public ModelAndView search() {
+	@RequestMapping(path = "editFilmAction.do", method = RequestMethod.POST, params = { "title", "description", "releaseYear", "languageId", 
+			"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
+	public ModelAndView editFilm(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
+			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
 		ModelAndView mv = new ModelAndView();
+		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
+		dao.updateFilm(film);
+		mv.addObject("film", film);
+		mv.setViewName("views/results");
+		return mv;
+	}
+
+	 @RequestMapping(path = "searchKeyword.do", params = "searchKeyword")
+	public ModelAndView searchKeyword(String keyword) {
+		ModelAndView mv = new ModelAndView();
+		try {
+			mv.addObject("film", dao.findFilmsWithSearchKeyWord(keyword));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return mv;
 	}
 

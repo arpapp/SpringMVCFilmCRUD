@@ -14,7 +14,7 @@
 	<br> Please enter the following information for the film you would
 	like to add:
 	<br>
-	<form action="addFilmAction.do" method="GET">
+	<form action="addFilmAction.do" method="POST">
 		
 		Title:<input type="text" name="title" size="4" required/>
 		Description:<input type="text" name="description" size="4"/> 

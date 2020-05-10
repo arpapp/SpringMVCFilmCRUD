@@ -14,7 +14,7 @@
 	<br> Please edit the following information for the film you would
 	like to update:
 	<br>
-	<form action="editFilmAction.do" method="GET">
+	<form action="editFilmAction.do" method="POST">
 	
 		<input type = "hidden" value = "${film.id}"></input>
 		Title:<input type="text" value = "${film.title}" name= "title" size="4" required/>
