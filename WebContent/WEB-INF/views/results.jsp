@@ -15,6 +15,7 @@
 		<c:when test="${! empty listFilm}">
 			<ul>
 				<c:forEach var="eachFilm" items="${listFilm}">
+					<%-- <li>${eachFilm }</li>--%>
 					<li>${eachFilm.title}</li>
 					<li>${eachFilm.language}</li>
 					<li>${eachFilm.rating}</li>

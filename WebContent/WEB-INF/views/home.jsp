@@ -22,7 +22,7 @@
 		<input type="submit" value="Submit" />
 	</form>
 	<br />
-	<form action="addFilm.do" method="GET">
+	<form action="addFilm.do" method="POST">
 		<input type="submit" value="Add Film" />
 	</form>
 	<br />
@@ -33,5 +33,6 @@
 	<form action="deleteFilm.do" method="GET">
 		<input type="submit" value="Delete Film" />
 	</form>
+	</p>
 </body>
 </html>
