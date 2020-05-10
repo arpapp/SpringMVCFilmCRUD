@@ -24,7 +24,7 @@
 		<br>
 		<label>For the following, please type (1) for English, (2) for Italian, (3) for Japanese, (4) for Mandarin, (5) for French, or (6) for German</label>
 		<br>
-		Language ID:<input type="text" name="languageId" size="4"/> 
+		Language ID:<input type="text" name="languageId" size="4"/>  
 		<br>
 		Rental Duration:<input type="text" name="rentalDuration" size="4"/> 
 		<br>
