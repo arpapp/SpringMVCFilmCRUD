@@ -12,13 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="login.do" method="GET">
-		<input type="submit" value="login" />
-	</form>
-	<form action="register.do" method="GET">
-		<input type="submit" value="register" />
-	</form>
-	<p>
 	<p>
 	<form action="searchID.do" method="GET">
 		Search Film ID <br /> <input type="text" value="Search ID" />
