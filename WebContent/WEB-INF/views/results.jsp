@@ -16,13 +16,24 @@
 			<ul>
 				<c:forEach var="eachFilm" items="${listFilm}">
 					<%-- <li>${eachFilm }</li>--%>
+					<li>${eachFilm.id}</li>
 					<li>${eachFilm.title}</li>
 					<li>${eachFilm.language}</li>
 					<li>${eachFilm.rating}</li>
 					<li>${eachFilm.category}</li>
-					<li><c:forEach var="eachActor" items="${eachFilm.filmActors}">
+					<li>*---ACTORS---*<c:forEach var="eachActor" items="${eachFilm.filmActors}">
 							<li>${eachActor.firstName}${eachActor.lastName}</li>
 						</c:forEach></li>
+					<form action="editFilm.do" method="GET">
+						<input type="submit" value="Edit Film" /> <input type="hidden"
+							name="id" value="${film.id}" />
+
+					</form>
+					<form action="deleteFilm.do" method="GET">
+						<input type="submit" value="Delete Film" /> <input type="hidden"
+							name="id" value="${film.id}" />
+
+					</form>
 				</c:forEach>
 			</ul>
 			<br>
