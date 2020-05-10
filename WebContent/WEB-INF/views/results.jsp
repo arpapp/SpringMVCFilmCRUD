@@ -20,9 +20,8 @@
 					<li>${eachFilm.rating}</li>
 					<li>${eachFilm.category}</li>
 					<li><c:forEach var="eachActor" items="${eachFilm.filmActors}">
-							<li>${eachActor.firstName} ${eachActor.lastName}</li>
-							<%-- <li>${eachActor.lastName}</li> --%>
-						</c:forEach></li> 
+							<li>${eachActor.firstName}${eachActor.lastName}</li>
+						</c:forEach></li>
 				</c:forEach>
 			</ul>
 		</c:when>

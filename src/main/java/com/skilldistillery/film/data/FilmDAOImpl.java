@@ -51,7 +51,7 @@ public class FilmDAOImpl implements FilmDAO {
 		if (filmResult.next()) {
 			film = new Film();
 			film.setTitle(filmResult.getString("title"));
-			film.setDescription(filmResult.getString("rating"));
+			film.setRating(filmResult.getString("rating"));
 			film.setCategory(filmResult.getString("category.name"));
 			film.setLanguage(filmResult.getString("language.name"));
 			film.setFilmActors(findActorsByFilmId(filmId));
