@@ -12,6 +12,7 @@
 <title>Film Database</title>
 </head>
 <body>
+<center><h1>Welcome to Film Fiends Database</h1></center>
 	<p>
 	<form action="searchID.do" method="GET">
 		Search Film ID <br /> <input type="text" name = "searchId"/>
@@ -26,6 +27,6 @@
 		<input type="submit" value="Add Film" />
 	</form>
 	<br />
-	</p>
+	
 </body>
 </html>
