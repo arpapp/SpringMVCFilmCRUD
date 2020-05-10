@@ -24,12 +24,13 @@ public class FilmController {
 		return mv;
 	}
 
-	 @RequestMapping(path = "searchID.do", params = "searchId")
+	 @RequestMapping(path = "searchID.do", params = "searchId", method = RequestMethod.GET)
 	public ModelAndView pullByID(int searchId) {
 		ModelAndView mv = new ModelAndView();
 		try {
 			Film found = dao.findFilmById(searchId);
 			mv.addObject("film",found);
+			mv.setViewName("views/results");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,10 +85,11 @@ public class FilmController {
 	}
 
 	 @RequestMapping(path = "searchKeyword.do", params = "searchKeyword")
-	public ModelAndView searchKeyword(String keyword) {
+	public ModelAndView searchKeywords(String searchKeyword) {
 		ModelAndView mv = new ModelAndView();
 		try {
-			mv.addObject("film", dao.findFilmsWithSearchKeyWord(keyword));
+			mv.addObject("listFilm", dao.findFilmsWithSearchKeyWord(searchKeyword));
+			mv.setViewName("views/results");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
