@@ -33,6 +33,7 @@ public class FilmController {
 	@RequestMapping(path = "deleteFilm.do")
 	public ModelAndView deletePage() {
 		ModelAndView mv = new ModelAndView();
+//		mv.addObject(film);
 		mv.setViewName("views/deleteFilm");
 		return mv;
 	}
