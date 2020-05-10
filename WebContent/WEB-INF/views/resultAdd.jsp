@@ -30,5 +30,13 @@
 			<p>No Film Found</p>
 		</c:otherwise>
 	</c:choose>
+	<br>
+	<br>
+	<form action="editFilm.do" method="GET">
+		<input type="submit" value="Edit Film" />
+	</form>
+	<form action="deleteFilm.do" method="GET">
+		<input type="submit" value="Delete Film" />
+	</form>
 </body>
 </html>

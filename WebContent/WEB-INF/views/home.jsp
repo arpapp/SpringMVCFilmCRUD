@@ -26,13 +26,6 @@
 		<input type="submit" value="Add Film" />
 	</form>
 	<br />
-	<form action="editFilm.do" method="GET">
-		<input type="submit" value="Edit Film" />
-	</form>
-	<br />
-	<form action="deleteFilm.do" method="GET">
-		<input type="submit" value="Delete Film" />
-	</form>
 	</p>
 </body>
 </html>

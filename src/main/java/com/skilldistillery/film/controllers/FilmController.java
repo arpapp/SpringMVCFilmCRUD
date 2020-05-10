@@ -56,33 +56,14 @@ public class FilmController {
 		}
 		return mv;
 	}
-
-//	@RequestMapping(path = "addFilmAction.do", method = RequestMethod.POST, params = { "title", "description", "releaseYear", "languageId", 
-//			"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
-//	public ModelAndView addFilm(String title, String description, int releaseYear, int languageId, int rentalDuration,
-//			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
-//		ModelAndView mv = new ModelAndView();
-//		Film film = new Film();
-//		film.setTitle(title);
-//		film.setDescription(description);
-//		film.setReleaseYear(releaseYear);
-//		film.setLanguageId(languageId);
-//		film.setRentalDuration(rentalDuration);
-//		film.setRentalRate(rentalRate);
-//		film.setLength(length);
-//		film.setReplacementCost(replacementCost);
-//		film.setRating(rating);
-//		film.setSpecialFeatures(specialFeatures);
-//		Film created = dao.createFilm(film);
-//		mv.addObject("film", created);
-//		mv.setViewName("views/results");
-//		return mv;
-//	}
 	 
 	 @RequestMapping(path = "addFilmAction.do", method = RequestMethod.POST)
 	 public ModelAndView addFilm(Film film) {
 		 ModelAndView mv = new ModelAndView();
 		 Film created = dao.createFilm(film);
+		 created.setCategory("Games");
+		 created.setLanguageId(3);
+		 created.setLanguage("Japanese");
 		 mv.addObject("film", created);
 		 mv.setViewName("views/resultAdd");
 		 return mv;
