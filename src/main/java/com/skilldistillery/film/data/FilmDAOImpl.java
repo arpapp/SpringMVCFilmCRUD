@@ -74,8 +74,8 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, replacement_cost, rating, special_features) "
-					+ " VALUES (?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) "
+					+ " VALUES (?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
@@ -83,9 +83,10 @@ public class FilmDAOImpl implements FilmDAO {
 			stmt.setInt(4, film.getLanguageId());
 			stmt.setInt(5, film.getRentalDuration());
 			stmt.setDouble(6, film.getRentalRate());
-			stmt.setDouble(7, film.getReplacementCost());
-			stmt.setString(8, film.getRating());
-			stmt.setString(9, film.getSpecialFeatures());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getReplacementCost());
+			stmt.setString(9, film.getRating());
+			stmt.setString(10, film.getSpecialFeatures());
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				ResultSet keys = stmt.getGeneratedKeys();
@@ -201,6 +202,7 @@ public class FilmDAOImpl implements FilmDAO {
 		// film.release_year, film.rating, language.name FROM film JOIN language ON
 		// language.id = film.language_id WHERE film.title LIKE ? OR film.description
 		// LIKE ?";
+		Film film = null;
 		String sql = "SELECT film.title, film.description, film.rating, category.name, language.name FROM film JOIN film_category ON film.id = film_category.film_id JOIN category ON category.id = film_category.category_id JOIN language ON language.id = film.language_id WHERE film.title LIKE ? OR film.description LIKE ?";
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
@@ -210,7 +212,7 @@ public class FilmDAOImpl implements FilmDAO {
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
-			Film film = new Film();
+			film = new Film();
 			film.setTitle(rs.getString("title"));
 			film.setDescription(rs.getString("description"));
 			film.setRating(rs.getString("rating"));
