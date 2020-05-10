@@ -101,7 +101,15 @@ public class FilmController {
 		Film film;
 		try {
 			film = dao.findFilmById(id);
-			dao.deleteFilm(film);
+			boolean result = dao.deleteFilm(film);
+			if (result == true) {
+				String print = "Your film was deleted successfully.";
+				mv.addObject("string", print);
+			}
+			else if (result == false) {
+				String print = "Your film was NOT deleted succesfully. Only films with IDs greater than 1000 can be deleted at this time.";
+				mv.addObject("string", print);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -112,18 +120,9 @@ public class FilmController {
 
 	@RequestMapping(path = "editFilmAction.do", method = RequestMethod.POST)
 	public ModelAndView editFilm(Film film) {
-		ModelAndView mv = new ModelAndView();
-//		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
-//		mv.addObject("film", film);		
-//		boolean result = dao.updateFilm(film);
-//		if (result == true) {
-//		String print= "Your film was deleted succesfully.";
-//		mv.addObject("string", print);
-//		}
-//		else if (result == false) {
-//			String print= "Your film was unable to be deleted.";
-//			mv.addObject("string", print);
-//		}
+		ModelAndView mv = new ModelAndView();	
+		dao.updateFilm(film);
+		mv.addObject("film", film);
 		mv.setViewName("views/resultAdd");
 		return mv;
 	}

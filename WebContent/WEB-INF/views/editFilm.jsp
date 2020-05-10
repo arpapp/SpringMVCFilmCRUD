@@ -19,7 +19,7 @@
 	<form action="editFilmAction.do" method="POST">
 		<c:choose>
 			<c:when test="${! empty film}">
-				<input type="hidden" value="${film.id}"></input>
+				<input type="hidden" name = "id" value="${film.id}"></input>
 		Title:<input type="text" name="title" value="${film.title}" />
 				<br>
 		Description:<input type="text" name="description" value="${film.description}" size="4" />

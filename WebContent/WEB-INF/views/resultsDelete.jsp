@@ -11,6 +11,6 @@
 <title>Delete a Film</title>
 </head>
 <body>
-	<h2>Your film was deleted I bet!</h2>
+	<h2>${string}</h2>
 </body>
 </html>
