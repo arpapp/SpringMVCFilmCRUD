@@ -29,8 +29,9 @@
 			<form action="editFilm.do" method="GET">
 				<input type="submit" value="Edit Film" />
 			</form>
-			<form action="deleteFilm.do" method="GET" >
-				<input type="submit" value="Delete Film" />
+			<form action="deleteFilmAction.do" method="POST">
+				<input type="submit" value="Delete Film" /> 
+				<input type="hidden"name="id" value="${film.id}" />
 			</form>
 		</c:when>
 		<c:otherwise>

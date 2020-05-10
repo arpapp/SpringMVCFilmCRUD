@@ -42,7 +42,7 @@ public class FilmDAOImpl implements FilmDAO {
 		// JOIN category ON category.id = film_category.category_id
 		//
 		if (filmId <= 1000) {
-			String sql = "SELECT film.title, film.rating, category.name, language.name\n" + "FROM film \n"
+			String sql = "SELECT film.*, category.name, language.name\n" + "FROM film \n"
 					+ "JOIN film_category ON film.id = film_category.film_id\n"
 					+ "JOIN category ON category.id = film_category.category_id\n"
 					+ "JOIN language ON language.id = film.language_id WHERE film.id = ?";
@@ -55,6 +55,12 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(filmResult.getString("rating"));
 				film.setCategory(filmResult.getString("category.name"));
 				film.setLanguage(filmResult.getString("language.name"));
+				film.setReleaseYear(filmResult.getInt("film.release_year"));
+				film.setLanguageId(filmResult.getInt("film.language_id"));
+				film.setRentalDuration(filmResult.getInt("rental_duration"));
+				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
+				film.setReplacementCost(filmResult.getDouble("replacement_cost"));
+				film.setId(filmResult.getInt("film.id"));
 				film.setFilmActors(findActorsByFilmId(filmId));
 
 				filmResult.close();
@@ -74,7 +80,12 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(filmResult.getString("rating"));
 				film.setLanguage(findLanguageByFilmId(filmId));
 				film.setCategory("New Release");
-
+				film.setReleaseYear(filmResult.getInt("release_year"));
+				film.setLanguageId(filmResult.getInt("language_id"));
+				film.setRentalDuration(filmResult.getInt("rental_duration"));
+				film.setRentalRate(filmResult.getDouble("rental_rate"));
+				film.setReplacementCost(filmResult.getDouble("replacement_cost"));
+				film.setId(filmResult.getInt("id"));
 				filmResult.close();
 				stmt.close();
 				conn.close();

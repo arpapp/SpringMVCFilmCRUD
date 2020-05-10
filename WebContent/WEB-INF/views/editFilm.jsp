@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <!DOCTYPE html>
@@ -14,31 +15,40 @@
 	<br> Please edit the following information for the film you would
 	like to update:
 	<br>
+	<br>
 	<form action="editFilmAction.do" method="POST">
-	
-		<input type = "hidden" value = "${film.id}"></input>
-		Title:<input type="text" value = "${film.title}" name= "title" size="4" required/>
-		Description:<input type="text" value = "${film.description}" name="description" size="4"/> 
-		Release Year:<input type="text" value = "${film.releaseYear}" name="releaseYear" size="4"/> 
-		<label>Please type (1) for English, (2) for Italian, (3) for Japanese, (4) for Mandarin, (5) for French, or (6) for German</label>
-		Language ID:<input type="text" value = "${film.languageId}" name="languageID" size="4"required/> 
-		
-		Rental Duration:<input type="text" value = "${film.rentalDuration}" name="rentalDuration" size="4"required/> 
-		Rental Rate:<input type="text" value = "${film.rentalRate}" name="rentalRate" size="4"required/> 
-		Length:<input type="text" value = "${film.length}" name="length" size="4"/> 
-		Replacement Cost:<input type="text" value = "${film.replacementCost}" name="replacementCost" size="4"required/> 
-		
-		<!-- <label><input type = "radio">Amateur</label> -->
-		Rating:
-		<label><input type="radio" value = "${film.rating}" name="rating" size="4"/>G</label>
-		<label><input type="radio" value = "${film.rating}" name="rating" size="4"/>PG</label>
-		<label><input type="radio" value = "${film.rating}" name="rating" size="4"/>PG13</label>
-		<label><input type="radio" value = "${film.rating}" name="rating" size="4"/>R</label>
-		<label><input type="radio" value = "${film.rating}" name="rating" size="4"/>NC17</label>
-		
-		Special Features:<input type="text" value = "${film.specialFeatures}" name="specialFeatures" size="4"/> 
-		
-		<input type="submit" value="Submit" />
+		<c:choose>
+			<c:when test="${! empty film}">
+				<input type="hidden" value="${film.id}"></input>
+		Title:<input type="text" name="title" value="${film.title}" />
+				<br>
+		Description:<input type="text" name="description" value="${film.description}" size="4" />
+				<br>
+		Release Year:<input type="text" name="releaseYear" size="4" value="${film.releaseYear}" />
+				<br>
+				<label>For the following, please type (1) for English, (2)
+					for Italian, (3) for Japanese, (4) for Mandarin, (5) for French, or
+					(6) for German</label>
+				<br>
+		Language ID:<input type="text" name="languageId" value="${film.languageId}" size="4" />
+				<br>
+		Rental Duration:<input type="text" name="rentalDuration"  value="${film.rentalDuration}"size="4" />
+				<br>
+		Rental Rate:<input type="text" name="rentalRate" size="4" value="${film.rentalRate}" />
+				<br>
+<%-- 		Length:<input type="text" name="length" size="4" value="${film.length}" />
+ --%>				
+		Replacement Cost:<input type="text" name="replacementCost" value="${film.replacementCost}" size="4" />
+				<br> 
+		Rating (G, PG, PG13, R, NC17):<input type="text" value="${film.rating}" name="rating"
+					size="4" />
+
+				<input type="submit" value="Submit" />
+			</c:when>
+			<c:otherwise>
+				<p>No Film Found</p>
+			</c:otherwise>
+		</c:choose>
 	</form>
 </body>
 </html>

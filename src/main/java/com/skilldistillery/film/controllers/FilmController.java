@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.skilldistillery.film.data.FilmDAO;
 import com.skilldistillery.film.entities.Film;
 
@@ -30,16 +32,31 @@ public class FilmController {
 		mv.setViewName("views/addFilm");
 		return mv;
 	}
-	@RequestMapping(path = "deleteFilm.do")
-	public ModelAndView deletePage() {
+	@RequestMapping(path = "deleteFilm.do", params = "id")
+	public ModelAndView deletePage(int id) {
 		ModelAndView mv = new ModelAndView();
-//		mv.addObject(film);
+		Film film;
+		try {
+			film = dao.findFilmById(id);
+			mv.addObject(film);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		mv.setViewName("views/deleteFilm");
 		return mv;
 	}
-	@RequestMapping(path = "editFilm.do")
-	public ModelAndView editPage() {
+	@RequestMapping(path = "editFilm.do", params = "id")
+	public ModelAndView editPage(int id) {
 		ModelAndView mv = new ModelAndView();
+		Film film;
+		try {
+			film = dao.findFilmById(id);
+			mv.addObject(film);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		mv.setViewName("views/editFilm");
 		return mv;
 	}
@@ -59,38 +76,55 @@ public class FilmController {
 	}
 	 
 	 @RequestMapping(path = "addFilmAction.do", method = RequestMethod.POST)
-	 public ModelAndView addFilm(Film film) {
+	 public ModelAndView addFilm(Film film, RedirectAttributes redir) {
 		 ModelAndView mv = new ModelAndView();
 		 Film created = dao.createFilm(film);
-		 created.setCategory("Games");
-		 created.setLanguageId(3);
-		 created.setLanguage("Japanese");
 		 mv.addObject("film", created);
+		 redir.addFlashAttribute("film", film);
+		 mv.setViewName("views/resultAdd");
+//		 mv.setViewName("redirect:filmCreated.do");
+		 return mv;
+	 }
+	 
+	 @RequestMapping(path="filmCreated.do", method = RequestMethod.GET)
+	 public ModelAndView filmCreated() {
+		 ModelAndView mv = new ModelAndView();
+//		 mv.addObject(film);
 		 mv.setViewName("views/resultAdd");
 		 return mv;
 	 }
-
-	 @RequestMapping(path = "deleteFilmAction.do", params = { "title", "description", "releaseYear", "languageId", 
-				"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
-	public ModelAndView deleteFilm(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
+	 
+	 @RequestMapping(path = "deleteFilmAction.do", method = RequestMethod.POST, params = "id")
+	public ModelAndView deleteFilm(int id) {
 		ModelAndView mv = new ModelAndView();
-		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
-		dao.deleteFilm(film);
-		mv.addObject("film", film);
-		mv.setViewName("views/results");
+//		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
+		Film film;
+		try {
+			film = dao.findFilmById(id);
+			dao.deleteFilm(film);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mv.setViewName("views/resultsDelete");
 		return mv;
 	}
 
-	@RequestMapping(path = "editFilmAction.do", method = RequestMethod.POST, params = { "title", "description", "releaseYear", "languageId", 
-			"rentalDuration", "rentalRate", "length", "replacementCost", "rating", "specialFeatures"})
-	public ModelAndView editFilm(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
+	@RequestMapping(path = "editFilmAction.do", method = RequestMethod.POST)
+	public ModelAndView editFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
-		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
-		dao.updateFilm(film);
-		mv.addObject("film", film);
-		mv.setViewName("views/results");
+//		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
+//		mv.addObject("film", film);		
+//		boolean result = dao.updateFilm(film);
+//		if (result == true) {
+//		String print= "Your film was deleted succesfully.";
+//		mv.addObject("string", print);
+//		}
+//		else if (result == false) {
+//			String print= "Your film was unable to be deleted.";
+//			mv.addObject("string", print);
+//		}
+		mv.setViewName("views/resultAdd");
 		return mv;
 	}
 
