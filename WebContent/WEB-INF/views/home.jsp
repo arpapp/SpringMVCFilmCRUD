@@ -15,11 +15,11 @@
 <center><h1>Welcome to Film Fiends Database</h1></center>
 	<p>
 	<form action="searchID.do" method="GET">
-		Search Film ID <br /> <input type="text" name = "searchId"/>
+		Search by Film ID <br /> <input type="text" name = "searchId"/>
 		<input type="submit" value="Submit" />
 	</form>
 	<form action="searchKeyword.do" method="GET">
-		Search Keyword <br /> <input type="text" name = "searchKeyword"/>
+		Search by Keyword <br /> <input type="text" name = "searchKeyword"/>
 		<input type="submit" value="Submit" />
 	</form>
 	<br />
