@@ -40,7 +40,8 @@ public class FilmDAOImpl implements FilmDAO {
 		// FROM film
 		// JOIN film_category ON film.id = film_category.film_id
 		// JOIN category ON category.id = film_category.category_id
-		// JOIN language ON language.id = film.language_id
+		// 
+		if (filmId <= 1000) {
 		String sql = "SELECT film.title, film.rating, category.name, language.name\n" + "FROM film \n"
 				+ "JOIN film_category ON film.id = film_category.film_id\n"
 				+ "JOIN category ON category.id = film_category.category_id\n"
@@ -55,12 +56,34 @@ public class FilmDAOImpl implements FilmDAO {
 			film.setCategory(filmResult.getString("category.name"));
 			film.setLanguage(filmResult.getString("language.name"));
 			film.setFilmActors(findActorsByFilmId(filmId));
-
+			
 			filmResult.close();
 			stmt.close();
 			conn.close();
 		}
-		return film;
+		return film; }
+		else {
+			String sql = "SELECT * FROM film WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, filmId);
+			ResultSet filmResult = stmt.executeQuery();
+			if (filmResult.next()) {
+				film = new Film();
+				film.setTitle(filmResult.getString("title"));
+				film.setDescription(filmResult.getString("description"));
+				film.setRating(filmResult.getString("rating"));
+			//	film.setCategory(filmResult.getString("category.name"));
+				film.setLanguage(findLanguageByFilmId(filmId));
+			//	film.setFilmActors(findActorsByFilmId(filmId));
+				film.setCategory("New Release");
+				
+				filmResult.close();
+				stmt.close();
+				conn.close();
+			
+		}
+	return film;
+	}
 	}
 	// User Story 2
 	// A user can choose to add a new film.
@@ -251,6 +274,22 @@ public class FilmDAOImpl implements FilmDAO {
 		conn.close();
 
 		return actors;
+	}
+	
+	public String findLanguageByFilmId(int filmId) throws SQLException {
+		Connection conn = DriverManager.getConnection(URL, user, pass);
+		String language = null;
+		String sql = "SELECT * FROM film JOIN language ON language.id = film.language_id WHERE film.id = ?";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, filmId);
+		ResultSet rs = stmt.executeQuery();
+		while (rs.next()) {
+			language = rs.getString("language.name");
+		}
+		rs.close();
+		stmt.close();
+		conn.close();
+		return language;
 	}
 
 }
