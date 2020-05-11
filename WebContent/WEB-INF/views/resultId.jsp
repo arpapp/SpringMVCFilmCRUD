@@ -21,29 +21,28 @@ h1 {
 	font-family: "Bungee Shade", cursive;
 	font-weight: bold;
 	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+	-webkit-text-stroke-color: black;
 }
 
 body {
-  background-color: #C1C1C1;
-  }
-  
+	background-color: #C1C1C1;
+}
+
 .button {
-  transition-duration: 0.4s;
-  border-radius: 4px;
-  margin-top: 4px;
+	transition-duration: 0.4s;
+	border-radius: 4px;
+	margin-top: 4px;
 }
 
 .button:hover {
-  background-color: #0AEE37; /* Green */
-  color: white;
-  margin-top: 4px;
+	background-color: #0AEE37; /* Green */
+	color: white;
+	margin-top: 4px;
 }
-
 </style>
 </head>
 <body>
-<h2>Results:</h2>
+	<h2>Results:</h2>
 	<c:choose>
 		<c:when test="${! empty film}">
 			<table>
@@ -85,6 +84,11 @@ body {
 										<input type="submit" class="button" value="Delete Film" /> <input
 											type="hidden" name="id" value="${film.id}" />
 									</form></td>
+								<td>
+									<form action="home.do" method="GET">
+										<input type="submit" class="button" value="Home" />
+									</form>
+								</td>
 							</tr>
 						</table>
 					</td>

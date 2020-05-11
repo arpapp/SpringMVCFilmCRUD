@@ -20,25 +20,24 @@ h1 {
 	font-family: "Bungee Shade", cursive;
 	font-weight: bold;
 	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+	-webkit-text-stroke-color: black;
 }
 
 body {
-  background-color: #C1C1C1;
-  }
-  
+	background-color: #C1C1C1;
+}
+
 .button {
-  transition-duration: 0.4s;
-  border-radius: 4px;
-  margin-top: 4px;
+	transition-duration: 0.4s;
+	border-radius: 4px;
+	margin-top: 4px;
 }
 
 .button:hover {
-  background-color: #0AEE37; /* Green */
-  color: white;
-  margin-top: 4px;
+	background-color: #0AEE37; /* Green */
+	color: white;
+	margin-top: 4px;
 }
-
 </style>
 </head>
 <body>
@@ -46,44 +45,49 @@ body {
 	<c:choose>
 		<c:when test="${! empty film}">
 			<table>
-			<th>Is this the film you would like to delete?</th>
-			<tr>
-				<td>Film ID: <em>${film.id}</em></td>
-			</tr>
-			<tr>
-				<td>Title: <em>${film.title}</em></td>
-			</tr>
-			<tr>
-				<td>Language: <em>${film.language}</em></td>
-			</tr>
-			<tr>
-				<td>Rating: <em>${film.rating}</em></td>
-			</tr>
-			<tr>
-				<td>Category: <em>${film.category}</em></td>
-			</tr>
+				<th>Is this the film you would like to delete?</th>
+				<tr>
+					<td>Film ID: <em>${film.id}</em></td>
+				</tr>
+				<tr>
+					<td>Title: <em>${film.title}</em></td>
+				</tr>
+				<tr>
+					<td>Language: <em>${film.language}</em></td>
+				</tr>
+				<tr>
+					<td>Rating: <em>${film.rating}</em></td>
+				</tr>
+				<tr>
+					<td>Category: <em>${film.category}</em></td>
+				</tr>
 				<%-- <li>ACTORS:<c:forEach var="eachActor"
 						items="${film.filmActors}">
 						<li>${eachActor.firstName}${eachActor.lastName}</li> --%>
 				<%-- <li>${eachActor.lastName}</li> --%>
 				<%-- </c:forEach></li> --%>
-			</tr>
-			<tr>
-				<td>
-					<table>
-						<tr>
-							<td>
-			<form action="deleteFilmAction.do" method="POST">
-				<input type="submit" class="button" value="Delete Film" /> <input type="hidden"
-					name="id" value="${film.id}" />
-					</form>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-					
-		</table>
+				</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td>
+									<form action="deleteFilmAction.do" method="POST">
+										<input type="submit" class="button" value="Delete Film" /> <input
+											type="hidden" name="id" value="${film.id}" />
+									</form>
+								</td>
+								<td>
+									<form action="home.do" method="GET">
+										<input type="submit" class="button" value="Home" />
+									</form>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+			</table>
 		</c:when>
 		<c:otherwise>
 			<p>No Film Found</p>
