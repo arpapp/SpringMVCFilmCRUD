@@ -63,7 +63,7 @@ body {
 				<td>Description:</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="description" size="25" /></td>
+				<td><input type="text" name="description" size="100" /></td>
 			</tr>
 			<tr>
 				<td>Release Year:</td>
