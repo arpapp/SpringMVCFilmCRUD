@@ -15,7 +15,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Shade">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Bungee+Shade">
 
 <title>Film Database</title>
 <style type="text/css">
@@ -24,25 +25,34 @@ h1 {
 	font-family: "Bungee Shade", cursive;
 	font-weight: bold;
 	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+	-webkit-text-stroke-color: black;
 }
 
 body {
-  background-color: #C1C1C1;
-  }
-  
+	background-color: #C1C1C1;
+}
+
 .button {
-  transition-duration: 0.4s;
-  border-radius: 4px;
-  margin-top: 4px;
+	transition-duration: 0.4s;
+	border-radius: 4px;
+	margin-top: 4px;
 }
 
 .button:hover {
-  background-color: #0AEE37; /* Green */
-  color: white;
-  margin-top: 4px;
+	background-color: #0AEE37; /* Green */
+	color: white;
+	margin-top: 4px;
 }
 
+body:after {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: black;
+	text-align: center;
+	content: "Copyright \00a9 Team href ... not that you would want to steal this"
+}
 </style>
 </head>
 <body>
@@ -50,21 +60,24 @@ body {
 
 	<center>
 		<h1>Welcome to Film Fiends Database</h1>
-	<p>
-	<form action="searchID.do" method="GET">
-		Search by Film ID <br /> <input type="text" name="searchId"/><br/><input
-			type="submit" class="button" value="Submit" /><br/><br/>
-	</form>
-	<form action="searchKeyword.do" method="GET">
-		Search by Keyword <br /> <input type="text" name="searchKeyword"/><br/>
-		<input type="submit" class="button" value="Submit" /><br/><br/>
-	</form>
-	<br />
-	<form action="addFilm.do" method="POST">
-		<input type="submit" class="button" value="Add Film" />
-	</form>
-	<br />
+		<p>
+		<form action="searchID.do" method="GET">
+			Search by Film ID <br /> <input type="text" name="searchId" /><br />
+			<input type="submit" class="button" value="Submit" /><br />
+			<br />
+		</form>
+		<form action="searchKeyword.do" method="GET">
+			Search by Keyword <br /> <input type="text" name="searchKeyword" /><br />
+			<input type="submit" class="button" value="Submit" /><br />
+			<br />
+		</form>
+		<br />
+		<form action="addFilm.do" method="POST">
+			<input type="submit" class="button" value="Add Film" />
+		</form>
+		<br />
 	</center>
+
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
