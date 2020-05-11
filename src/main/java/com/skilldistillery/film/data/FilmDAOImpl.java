@@ -47,6 +47,7 @@ public class FilmDAOImpl implements FilmDAO {
 			if (filmResult.next()) {
 				film = new Film();
 				film.setTitle(filmResult.getString("title"));
+				film.setDescription(filmResult.getString("description"));
 				film.setRating(filmResult.getString("rating"));
 				film.setCategory(filmResult.getString("category.name"));
 				film.setLanguage(filmResult.getString("language.name"));
@@ -54,6 +55,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setLanguageId(filmResult.getInt("film.language_id"));
 				film.setRentalDuration(filmResult.getInt("rental_duration"));
 				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
+				film.setLength(filmResult.getInt("length"));
 				film.setReplacementCost(filmResult.getDouble("replacement_cost"));
 				film.setId(filmResult.getInt("film.id"));
 				film.setFilmActors(findActorsByFilmId(filmId));
