@@ -97,7 +97,6 @@ public class FilmController {
 	 @RequestMapping(path = "deleteFilmAction.do", method = RequestMethod.POST, params = "id")
 	public ModelAndView deleteFilm(int id) {
 		ModelAndView mv = new ModelAndView();
-//		Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
 		Film film;
 		try {
 			film = dao.findFilmById(id);
