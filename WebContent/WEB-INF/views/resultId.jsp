@@ -17,6 +17,7 @@
 <title>Film Information</title>
 </head>
 <body>
+<h2>Results:</h2>
 	<c:choose>
 		<c:when test="${! empty film}">
 			<table>
@@ -33,7 +34,7 @@
 					<td>Rating: <em>${film.rating}</em></td>
 				</tr>
 				<tr>
-					<td>Category: <em>${film.category}</em>ss
+					<td>Category: <em>${film.category}</em>
 					</td>
 				</tr>
 				<tr>
@@ -52,11 +53,11 @@
 							<tr>
 								<td><form action="editFilm.do" method="GET">
 										<input type="submit" value="Edit Film" /> <input
-											type="hidden" name="id" value="${eachFilm.id}" />
+											type="hidden" name="id" value="${film.id}" />
 									</form></td>
 								<td><form action="deleteFilm.do" method="GET">
 										<input type="submit" value="Delete Film" /> <input
-											type="hidden" name="id" value="${eachFilm.id}" />
+											type="hidden" name="id" value="${film.id}" />
 									</form></td>
 							</tr>
 						</table>

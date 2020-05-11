@@ -20,30 +20,56 @@
 	<h2>Results:</h2>
 	<c:choose>
 		<c:when test="${! empty film}">
-			<ul>
-				<li>ID: ${film.id}</li>
-				<li>Title: ${film.title}</li>
-				<li>Description: ${film.description}</li>
-				<li>Language ID: ${film.languageId}</li>
-				<li>Rating: ${film.rating}</li>
-				<li>Release Year: ${film.releaseYear}</li>
-				<li>Rental Duration: ${film.rentalDuration}</li>
-				<li>Rental Rate: ${film.rentalRate}</li>
-				<li>Length: ${film.length}</li>
-				<li>Replacement Cost: ${film.replacementCost}</li>
-			</ul>
-			<br>
-			<br>
-			<form action="editFilm.do" method="GET">
-				<input type="submit" value="Edit Film" /> <input type="hidden"
-					name="id" value="${film.id}" />
+			<table>
+				<tr>
+					<td>Film ID: <em>${film.id}</em></td>
+				</tr>
+				<tr>
+					<td>Title: <em>${film.title}</em></td>
+				</tr>
+				<tr>
+					<td>Description: <em>${film.description}</em></td>
+				</tr>
+				<tr>
+					<td>Language ID: <em>${film.languageId}</em></td>
+				</tr>
+				<tr>
+					<td>Rating: <em>${film.rating}</em></td>
+				</tr>
+				<tr>
+					<td>Release Year: <em>${film.releaseYear}</em></td>
+				</tr>
+				<tr>
+					<td>Rental Duration: <em>${film.rentalDuration}</em></td>
+				</tr>
+				<tr>
+					<td>Rental Rate: <em>${film.rentalRate}</em></td>
+				</tr>
+				<tr>
+					<td>Length: <em>${film.length}</em></td>
+				</tr>
+				<tr>
+					<td>Replacement Cost: <em>${film.replacementCost}</em></td>
+				</tr>
 
-			</form>
-			<form action="deleteFilm.do" method="GET">
-				<input type="submit" value="Delete Film" /> <input type="hidden"
-					name="id" value="${film.id}" />
-
-			</form>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td>
+								<form action="editFilm.do" method="GET">
+									<input type="submit" value="Edit Film" /> <input type="hidden"
+										name="id" value="${film.id}" />
+								</form></td>
+								<td>
+								<form action="deleteFilm.do" method="GET">
+									<input type="submit" value="Delete Film" /> <input type="hidden"
+										name="id" value="${film.id}" /></form></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 		</c:when>
 		<c:otherwise>
 			<p>No Film Found</p>

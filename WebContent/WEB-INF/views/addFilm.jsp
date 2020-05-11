@@ -41,7 +41,7 @@
 			<td>Release Year:</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="releaseYear" size="4" /> </td>
+			<td><input type="text" name="releaseYear"  size="6" /> </td>
 		</tr>
 		<tr>
 			<td><label>For
@@ -52,37 +52,37 @@
 			<td>Language ID:</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="languageId" size="4" /> </td>
+			<td><input type="text" name="languageId" size="6" /> </td>
 		</tr>
 		<tr>
 			<td> Rental Duration:</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="rentalDuration" size="4" /> </td>
+			<td><input type="text" name="rentalDuration" size="6" /> </td>
 		</tr>
 		<tr>
 			<td> Rental Rate: </td> 
 		</tr>
 		<tr>
-			<td><input type="text" name="rentalRate" size="4" /> </td>
+			<td><input type="text" name="rentalRate" size="6" /> </td>
 		</tr>
 		<tr>
 			<td> Length:</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="length" size="4" /> </td>
+			<td><input type="text" name="length" size="6" /> </td>
 		</tr>
 		<tr>
 			<td> Replacement Cost: </td>
 		</tr>
 		<tr>
-			<td><input type="text" name="replacementCost" size="4" /> </td>
+			<td><input type="text" name="replacementCost" size="6" /> </td>
 		</tr>
 		<tr>
 			<td> Rating (G, PG, PG13, R, NC17):</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="rating" size="4" /> </td>
+			<td><input type="text" name="rating" size="6" /> </td>
 		</tr>
 		<!-- <label><input type = "radio">Amateur</label> -->
 		<!-- <label><input type="radio" name="rating" size="4"/>G</label>
@@ -92,11 +92,11 @@
 		<label><input type="radio" name="rating" size="4"/>NC17</label> -->
 		<!-- 		Special Features:<input type="text" name="specialFeatures" size="4"/>
  -->
-	
+		
 	</table>
 		<br> <input type="submit" value="Submit" />
+	
 	</form>
-
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
