@@ -36,11 +36,6 @@ public class FilmDAOImpl implements FilmDAO {
 		Connection conn = DriverManager.getConnection(URL, user, pass);
 
 		Film film = null;
-		// SELECT film.title, film.rating, category.name, language.name
-		// FROM film
-		// JOIN film_category ON film.id = film_category.film_id
-		// JOIN category ON category.id = film_category.category_id
-		//
 		if (filmId <= 1000) {
 			String sql = "SELECT film.*, category.name, language.name\n" + "FROM film \n"
 					+ "JOIN film_category ON film.id = film_category.film_id\n"
@@ -199,17 +194,14 @@ public class FilmDAOImpl implements FilmDAO {
 			stmt.setDouble(8, film.getReplacementCost());
 			stmt.setString(9, film.getRating());
 			stmt.setInt(10, film.getId());
-
-		//	stmt.setString(8, film.getSpecialFeatures());
-		//	stmt.setInt(9, film.getId());
 			stmt.executeUpdate();
-			conn.commit(); // COMMIT TRANSACTION
+			conn.commit(); 
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
 				try {
 					conn.rollback();
-				} // ROLLBACK TRANSACTION ON ERROR
+				} 
 				catch (SQLException sqle2) {
 					System.err.println("Error trying to rollback");
 				}
@@ -226,23 +218,13 @@ public class FilmDAOImpl implements FilmDAO {
 	public List<Film> findFilmsWithSearchKeyWord(String userSearchKw) throws SQLException {
 		List<Film> filmsWithUserSearchKw = new ArrayList<>();
 		Connection conn = DriverManager.getConnection(URL, user, pass);
-
-//		SELECT film.title, film.rating, category.name, language.name\n" + 
-//		"FROM film \n" + 
-//		"JOIN film_category ON film.id = film_category.film_id\n" + 
-//		"JOIN category ON category.id = film_category.category_id\n" + 
-//		"JOIN language ON language.id = film.language_id WHERE film.id = ?";
-		// String sql = "SELECT film.id, film.title, film.description,
-		// film.release_year, film.rating, language.name FROM film JOIN language ON
-		// language.id = film.language_id WHERE film.title LIKE ? OR film.description
-		// LIKE ?";
 		Film film = null;
+		
 		String sql = "SELECT film.id, film.title, film.description, film.rating, category.name, language.name FROM film JOIN film_category ON film.id = film_category.film_id JOIN category ON category.id = film_category.category_id JOIN language ON language.id = film.language_id WHERE film.title LIKE ? OR film.description LIKE ?";
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, "%" + userSearchKw + "%");
 		stmt.setString(2, "%" + userSearchKw + "%");
-//		System.out.println(stmt);
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
