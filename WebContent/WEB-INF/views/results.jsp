@@ -13,31 +13,55 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty listFilm}">
-			<ul>
-				<c:forEach var="eachFilm" items="${listFilm}">
+
+			<c:forEach var="eachFilm" items="${listFilm}">
+				<table>
 					<%-- <li>${eachFilm }</li>--%>
-					<li>${eachFilm.id}</li>
-					<li>${eachFilm.title}</li>
-					<li>${eachFilm.language}</li>
-					<li>${eachFilm.rating}</li>
-					<li>${eachFilm.category}</li>
-					<li>*---ACTORS---*<c:forEach var="eachActor" items="${eachFilm.filmActors}">
-							<li>${eachActor.firstName}${eachActor.lastName}</li>
-						</c:forEach></li>
-					<form action="editFilm.do" method="GET">
-						<input type="submit" value="Edit Film" /> <input type="hidden"
-							name="id" value="${eachFilm.id}" />
+					<tr>
+						<td>Film ID: <em>${eachFilm.id}</em></td>
+					</tr>
+					<tr>
+						<td>Title: <em>${eachFilm.title}</em></td>
+					</tr>
+					<tr>
+						<td>Language: <em>${eachFilm.language}</em></td>
+					</tr>
+					<tr>
+						<td>Rating: ${eachFilm.rating}</td>
+					</tr>
+					<tr>
+						<td>Category: <em>${eachFilm.category}</em></td>
+					</tr>
+					<tr>
+						<td>*---ACTORS---*<c:forEach var="eachActor"
+								items="${eachFilm.filmActors}">
+								<tr>
+									<td>- <em>${eachActor.firstName} ${eachActor.lastName}</em></td>
+								</tr>
+							</c:forEach>
+					</tr>
+					<tr>
+					<td>
+					<table>
+						<tr>
+							<td><form action="editFilm.do" method="GET">
+									<input type="submit" value="Edit Film" /> <input type="hidden"
+										name="id" value="${eachFilm.id}" />
+								</form></td>
+							<td><form action="deleteFilm.do" method="GET">
+									<input type="submit" value="Delete Film" /> <input
+										type="hidden" name="id" value="${eachFilm.id}" />
+								</form></td>
+						</tr>
+					</table>
+					</td></tr>
+				</table>
+				<strong>--------------------------</strong>
+			</c:forEach>
 
-					</form>
-					<form action="deleteFilm.do" method="GET">
-						<input type="submit" value="Delete Film" /> <input type="hidden"
-							name="id" value="${eachFilm.id}" />
 
-					</form>
-				</c:forEach>
-			</ul>
-			<br>
-			<br>
+
+
 			<!-- <form action="editFilm.do" method="GET">
 				<input type="submit" value="Edit Film" />
 			</form>
