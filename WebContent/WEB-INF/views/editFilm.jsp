@@ -25,38 +25,75 @@
 	<form action="editFilmAction.do" method="POST">
 		<c:choose>
 			<c:when test="${! empty film}">
+			<table>
 				<input type="hidden" name="id" value="${film.id}"></input>
-		Title:<input type="text" name="title" value="${film.title}" />
-				<br>
-		Description:<input type="text" name="description"
-					value="${film.description}" size="4" />
-				<br>
-		Release Year:<input type="text" name="releaseYear" size="4"
-					value="${film.releaseYear}" />
-				<br>
-				<label>For the following, please type (1) for English, (2)
-					for Italian, (3) for Japanese, (4) for Mandarin, (5) for French, or
-					(6) for German</label>
-				<br>
-		Language ID:<input type="text" name="languageId"
-					value="${film.languageId}" size="4" />
-				<br>
-		Rental Duration:<input type="text" name="rentalDuration"
-					value="${film.rentalDuration}" size="4" />
-				<br>
-		Rental Rate:<input type="text" name="rentalRate" size="4"
-					value="${film.rentalRate}" />
-				<br>
-		Length:<input type="text" name="length" size="4"
-					value="${film.length}" />
-				<br>
-		Replacement Cost:<input type="text" name="replacementCost"
-					value="${film.replacementCost}" size="4" />
-				<br> 
-		Rating (G, PG, PG13, R, NC17):<input type="text"
-					value="${film.rating}" name="rating" size="4" />
-				<br>
-				<input type="submit" value="Submit" />
+		<tr>
+			<td>Title:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="title" value="${film.title}" size="25"/></td>
+		</tr>
+		<tr>
+			<td>Description:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="description" value="${film.description}" size="25" /></td>
+		</tr>
+		<tr>
+			<td>Release Year:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="releaseYear" size="6" value="${film.releaseYear}" /></td>
+		</tr>
+		<tr>
+			<td><label>For the following, please type (1) for English, (2) for Italian, (3) for Japanese, (4) for Mandarin, (5) for French, or (6) for German</label></td>
+		</tr>
+		<tr>
+			<td>Language ID:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="languageId" value="${film.languageId}" size="6" /></td>
+		</tr>
+		<tr>
+			<td>Rental Duration:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="rentalDuration" value="${film.rentalDuration}" size="6"/></td>
+		</tr>
+		<tr>
+			<td>Rental Rate:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="rentalRate" size="4" value="${film.rentalRate}"  size="6"/></td>
+		</tr>
+		<tr>
+			<td>Length:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="length" size="4" value="${film.length}"  size="6" /></td>
+		</tr>
+		<tr>
+			<td>Replacement Cost:</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="replacementCost" value="${film.replacementCost}"  size="6" /></td>
+		</tr>
+		<tr>
+			<td>Rating (G, PG, PG13, R, NC17):</td>
+		</tr>
+		<tr>
+			<td><input type="text" value="${film.rating}" name="rating"  size="6" /></td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td><input type="submit" value="Submit" /></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+				</table>
 			</c:when>
 			<c:otherwise>
 				<p>No Film Found</p>

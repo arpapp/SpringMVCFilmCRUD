@@ -17,27 +17,47 @@
 </head>
 <body>
 	<h2>Delete Film</h2>
-	<br>
-	<p>Is this the film you would like to delete?</p>
 	<c:choose>
 		<c:when test="${! empty film}">
-			<ul>
-				<li>${film.title}</li>
-				<li>${film.language}</li>
-				<li>${film.rating}</li>
-				<li>${film.category}</li>
+			<table>
+			<th>Is this the film you would like to delete?</th>
+			<tr>
+				<td>Film ID: <em>${film.id}</em></td>
+			</tr>
+			<tr>
+				<td>Title: <em>${film.title}</em></td>
+			</tr>
+			<tr>
+				<td>Language: <em>${film.language}</em></td>
+			</tr>
+			<tr>
+				<td>Rating: <em>${film.rating}</em></td>
+			</tr>
+			<tr>
+				<td>Category: <em>${film.category}</em></td>
+			</tr>
 				<%-- <li>ACTORS:<c:forEach var="eachActor"
 						items="${film.filmActors}">
 						<li>${eachActor.firstName}${eachActor.lastName}</li> --%>
 				<%-- <li>${eachActor.lastName}</li> --%>
 				<%-- </c:forEach></li> --%>
-			</ul>
-			<br>
-			<br>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td>
 			<form action="deleteFilmAction.do" method="POST">
 				<input type="submit" value="Delete Film" /> <input type="hidden"
 					name="id" value="${film.id}" />
-			</form>
+					</form>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+					
+		</table>
 		</c:when>
 		<c:otherwise>
 			<p>No Film Found</p>
