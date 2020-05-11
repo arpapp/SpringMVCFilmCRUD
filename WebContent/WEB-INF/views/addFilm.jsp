@@ -12,116 +12,118 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Bungee+Shade">
 <title>Add a Film</title>
 <style type="text/css">
-h1 {
+h1, h2, h3, h4, h5, h6 {
 	color: #0AEE37;
 	font-family: "Bungee Shade", cursive;
 	font-weight: bold;
 	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+	-webkit-text-stroke-color: black;
 }
 
 body {
-  background-color: #C1C1C1;
-  }
-  
+	background-color: #C1C1C1;
+}
+
 .button {
-  transition-duration: 0.4s;
-  border-radius: 4px;
-  margin-top: 4px;
+	transition-duration: 0.4s;
+	border-radius: 4px;
+	margin-top: 4px;
 }
 
 .button:hover {
-  background-color: #0AEE37; /* Green */
-  color: white;
-  margin-top: 4px;
+	background-color: #0AEE37; /* Green */
+	color: white;
+	margin-top: 4px;
 }
-
 </style>
 </head>
 <body>
-<table>
-<tr>
-	<td><h2>Add a Film</h2></td>
-	</tr>
-	<tr>
-	<th> Please enter the following information for the film you would like to add: </th>
-	</tr>
-	
-	<form action="addFilmAction.do" method="POST">
+	<table>
 		<tr>
-			<td>Title:</td>
+			<td><h2>Add a Film</h2></td>
 		</tr>
 		<tr>
-		<td><input type="text" name="title" size="25"/></td>
+			<th>Please enter the following information for the film you
+				would like to add:</th>
 		</tr>
-		
-		<tr>
-			<td>Description:</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="description" size="25" /> </td>
-		</tr>
-		<tr>
-			<td>Release Year:</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="releaseYear"  size="6" /> </td>
-		</tr>
-		<tr>
-			<td><label>For
-			the following, please type (1) for English, (2) for Italian, (3) for
-			Japanese, (4) for Mandarin, (5) for French, or (6) for German</label></td>
-		</tr>
-		<tr>
-			<td>Language ID:</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="languageId" size="6" /> </td>
-		</tr>
-		<tr>
-			<td> Rental Duration:</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="rentalDuration" size="6" /> </td>
-		</tr>
-		<tr>
-			<td> Rental Rate: </td> 
-		</tr>
-		<tr>
-			<td><input type="text" name="rentalRate" size="6" /> </td>
-		</tr>
-		<tr>
-			<td> Length:</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="length" size="6" /> </td>
-		</tr>
-		<tr>
-			<td> Replacement Cost: </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="replacementCost" size="6" /> </td>
-		</tr>
-		<tr>
-			<td> Rating (G, PG, PG13, R, NC17):</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="rating" size="6" /> </td>
-		</tr>
-		<!-- <label><input type = "radio">Amateur</label> -->
-		<!-- <label><input type="radio" name="rating" size="4"/>G</label>
+
+		<form action="addFilmAction.do" method="POST">
+			<tr>
+				<td>Title:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="title" size="25" /></td>
+			</tr>
+
+			<tr>
+				<td>Description:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="description" size="25" /></td>
+			</tr>
+			<tr>
+				<td>Release Year:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="releaseYear" size="6" /></td>
+			</tr>
+			<tr>
+				<td><label>For the following, please type (1) for
+						English, (2) for Italian, (3) for Japanese, (4) for Mandarin, (5)
+						for French, or (6) for German</label></td>
+			</tr>
+			<tr>
+				<td>Language ID:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="languageId" size="6" /></td>
+			</tr>
+			<tr>
+				<td>Rental Duration:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="rentalDuration" size="6" /></td>
+			</tr>
+			<tr>
+				<td>Rental Rate:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="rentalRate" size="6" /></td>
+			</tr>
+			<tr>
+				<td>Length:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="length" size="6" /></td>
+			</tr>
+			<tr>
+				<td>Replacement Cost:</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="replacementCost" size="6" /></td>
+			</tr>
+			<tr>
+				<td>Rating (G, PG, PG13, R, NC17):</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="rating" size="6" /></td>
+			</tr>
+			<!-- <label><input type = "radio">Amateur</label> -->
+			<!-- <label><input type="radio" name="rating" size="4"/>G</label>
 		<label><input type="radio" name="rating" size="4"/>PG</label>
 		<label><input type="radio" name="rating" size="4"/>PG13</label>
 		<label><input type="radio" name="rating" size="4"/>R</label>
 		<label><input type="radio" name="rating" size="4"/>NC17</label> -->
-		<!-- 		Special Features:<input type="text" name="specialFeatures" size="4"/>
+			<!-- 		Special Features:<input type="text" name="specialFeatures" size="4"/>
  -->
-		
 	</table>
-		<br> <input type="submit" class="button" value="Submit" />
-	
+	<br>
+	<input type="submit" class="button" value="Submit" />
+
 	</form>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
