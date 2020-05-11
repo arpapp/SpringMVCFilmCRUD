@@ -15,6 +15,32 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 <title>Delete a Film</title>
+<style type="text/css">
+h1 {
+	color: #0AEE37;
+	font-family: "Bungee Shade", cursive;
+	font-weight: bold;
+	-webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+body {
+  background-color: #C1C1C1;
+  }
+  
+.button {
+  transition-duration: 0.4s;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.button:hover {
+  background-color: #0AEE37; /* Green */
+  color: white;
+  margin-top: 4px;
+}
+
+</style>
 </head>
 <body>
 	<h2>${string}</h2>
