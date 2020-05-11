@@ -19,30 +19,37 @@
 	<form action="editFilmAction.do" method="POST">
 		<c:choose>
 			<c:when test="${! empty film}">
-				<input type="hidden" name = "id" value="${film.id}"></input>
+				<input type="hidden" name="id" value="${film.id}"></input>
 		Title:<input type="text" name="title" value="${film.title}" />
 				<br>
-		Description:<input type="text" name="description" value="${film.description}" size="4" />
+		Description:<input type="text" name="description"
+					value="${film.description}" size="4" />
 				<br>
-		Release Year:<input type="text" name="releaseYear" size="4" value="${film.releaseYear}" />
+		Release Year:<input type="text" name="releaseYear" size="4"
+					value="${film.releaseYear}" />
 				<br>
 				<label>For the following, please type (1) for English, (2)
 					for Italian, (3) for Japanese, (4) for Mandarin, (5) for French, or
 					(6) for German</label>
 				<br>
-		Language ID:<input type="text" name="languageId" value="${film.languageId}" size="4" />
+		Language ID:<input type="text" name="languageId"
+					value="${film.languageId}" size="4" />
 				<br>
-		Rental Duration:<input type="text" name="rentalDuration"  value="${film.rentalDuration}"size="4" />
+		Rental Duration:<input type="text" name="rentalDuration"
+					value="${film.rentalDuration}" size="4" />
 				<br>
-		Rental Rate:<input type="text" name="rentalRate" size="4" value="${film.rentalRate}" />
+		Rental Rate:<input type="text" name="rentalRate" size="4"
+					value="${film.rentalRate}" />
 				<br>
-<%-- 		Length:<input type="text" name="length" size="4" value="${film.length}" />
- --%>				
-		Replacement Cost:<input type="text" name="replacementCost" value="${film.replacementCost}" size="4" />
+		Length:<input type="text" name="length" size="4"
+					value="${film.length}" />
+				<br>
+		Replacement Cost:<input type="text" name="replacementCost"
+					value="${film.replacementCost}" size="4" />
 				<br> 
-		Rating (G, PG, PG13, R, NC17):<input type="text" value="${film.rating}" name="rating"
-					size="4" />
-
+		Rating (G, PG, PG13, R, NC17):<input type="text"
+					value="${film.rating}" name="rating" size="4" />
+				<br>
 				<input type="submit" value="Submit" />
 			</c:when>
 			<c:otherwise>

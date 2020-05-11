@@ -86,6 +86,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRentalRate(filmResult.getDouble("rental_rate"));
 				film.setReplacementCost(filmResult.getDouble("replacement_cost"));
 				film.setId(filmResult.getInt("id"));
+				film.setLength(filmResult.getInt("length"));
 				filmResult.close();
 				stmt.close();
 				conn.close();
@@ -186,7 +187,7 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false);
-			String sql = "UPDATE film SET title=?, description=?, language_id =?, rental_duration=?, rental_rate=?, replacement_cost=?, rating=? WHERE id=?";
+			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id =?, rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=? WHERE id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql);	
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
