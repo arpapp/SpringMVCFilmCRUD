@@ -13,27 +13,49 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty film}">
-			<ul>
-				<li>${film.title}</li>
-				<li>${film.language}</li>
-				<li>${film.rating}</li>
-				<li>${film.category}</li>
-				<li>ACTORS:<c:forEach var="eachActor"
-						items="${film.filmActors}">
-						<li>${eachActor.firstName}${eachActor.lastName}</li>
-						<%-- <li>${eachActor.lastName}</li> --%>
-					</c:forEach></li>
-			</ul>
-			<br>
-			<br>
-			<form action="editFilm.do" method="GET">
-				<input type="submit" value="Edit Film" />
-				<input type="hidden"name="id" value="${film.id}" />
-			</form>
-			<form action="deleteFilmAction.do" method="POST">
-				<input type="submit" value="Delete Film" /> 
-				<input type="hidden"name="id" value="${film.id}" />
-			</form>
+			<table>
+				<tr>
+					<td>Film ID: <em>${film.id}</em></td>
+				</tr>
+				<tr>
+					<td>Title: <em>${film.title}</em></td>
+				</tr>
+				<tr>
+					<td>Language: <em>${film.language}</em></td>
+				</tr>
+				<tr>
+					<td>Rating: <em>${film.rating}</em></td>
+				</tr>
+				<tr>
+					<td>Category: <em>${film.category}</em>ss</td>
+				</tr>
+				<tr>
+					<td>*---ACTORS---*<c:forEach var="eachActor"
+							items="${film.filmActors}">
+							<tr>
+								<td>- <em>${eachActor.firstName} ${eachActor.lastName}</em></td>
+							</tr>
+							<%-- <li>${eachActor.lastName}</li> --%>
+						</c:forEach>
+				</tr>
+
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td><form action="editFilm.do" method="GET">
+										<input type="submit" value="Edit Film" /> <input
+											type="hidden" name="id" value="${eachFilm.id}" />
+									</form></td>
+								<td><form action="deleteFilm.do" method="GET">
+										<input type="submit" value="Delete Film" /> <input
+											type="hidden" name="id" value="${eachFilm.id}" />
+									</form></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 		</c:when>
 		<c:otherwise>
 			<p>No Film Found</p>
